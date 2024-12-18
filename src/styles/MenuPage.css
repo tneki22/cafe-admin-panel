@@ -1,0 +1,96 @@
+.menu-page {
+  background-color: #E0F7FA;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.add-button {
+  background: #4DD0E1;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.add-button:hover {
+  background: #26C6DA;
+}
+
+.add-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.add-form input {
+  padding: 10px;
+  border: 1px solid #B2EBF2;
+  border-radius: 5px;
+}
+
+.add-form button {
+  padding: 10px 20px;
+  background-color: #4DD0E1;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-form button:hover {
+  background-color: #26C6DA;
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  padding: 12px;
+  border: 1px solid #B2EBF2;
+  text-align: left;
+}
+
+.table th {
+  background-color: #E0F7FA;
+}
+
+.table button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  background-color: #4DD0E1;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.table button:hover {
+  background-color: #26C6DA;
+}
+
+input[type="text"], input[type="number"] {
+  padding: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}

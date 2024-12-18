@@ -1,0 +1,82 @@
+.main-page {
+  background-image: url('/public/images/background_main.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  justify-content: center; /* Center the header text */
+  align-items: center;
+  padding: 20px;
+  position: relative; /* Add relative positioning */
+}
+
+h1 {
+  margin: 0;
+  text-align: center; /* Center the header text */
+  background-color: white; /* White background for the header text */
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.date-time {
+  font-size: 18px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  position: absolute;
+  top: 20px;   /* Align to top */
+  right: 20px; /* Align to right */
+}
+
+.name {
+  font-size: 18px;
+  background-color: white; /* White background for the username */
+  padding: 10px;
+  border-radius: 5px;
+  position: absolute; /* Position it absolutely within the header */
+  left: 20px; /* Align it to the left */
+}
+
+.main-buttons {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.main-buttons button {
+  padding: 20px 40px;
+  background-color: #4DD0E1;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.main-buttons button:hover {
+  background-color: #26C6DA;
+}
+.logout-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 12px 24px; /* Increased padding for a larger button */
+  font-size: 16px;    /* Increased font size */
+  background-color: #f44336; /* Optional: Change background color if desired */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #d32f2f; /* Optional: Darker shade on hover */
+}

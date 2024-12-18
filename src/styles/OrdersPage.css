@@ -1,0 +1,95 @@
+.orders-page {
+  background-color: #E0F7FA;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+h1 {
+  margin: 0;
+}
+
+.add-button {
+  background: #4DD0E1;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.add-button:hover {
+  background: #26C6DA;
+}
+
+.content {
+  padding: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #B2EBF2;
+  padding: 10px;
+  text-align: left;
+}
+
+button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  background-color: #4DD0E1;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #26C6DA;
+}
+
+.add-order-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.order-item {
+  display: flex;
+  gap: 10px;
+}
+
+.order-item select, .order-item input {
+  padding: 5px;
+  border: 1px solid #B2EBF2;
+  border-radius: 5px;
+}
+
+.order-item button {
+  padding: 5px 10px;
+  background-color: #FF5252;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.order-item button:hover {
+  background-color: #FF1744;
+}

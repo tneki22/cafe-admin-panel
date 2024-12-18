@@ -1,0 +1,28 @@
+# Go
+/bin/
+/pkg/
+/vendor/
+/*.exe
+/*.dll
+/*.so
+/*.dylib
+
+# Node.js
+/node_modules
+/build
+/dist
+/.env
+
+# IDE и редакторы
+.vscode/
+.idea/
+*.swp
+
+# Логи
+*.log
+
+# Файлы окружения
+.env
+
+# Базы данных
+*.sql
