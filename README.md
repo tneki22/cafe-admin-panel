@@ -137,7 +137,7 @@ go mod download
 
 ```bash
 cd ../backend
-go run main.go
+go run .
 ```
 
 Сервер будет работать по адресу 
