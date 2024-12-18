@@ -11,7 +11,7 @@ import (
 
 func main() {
 	// Настройки подключения к базе данных
-	connStr := "host=localhost port=5432 user=postgres password=postgres dbname=cafe-admin-users sslmode=disable"
+	connStr := "host=localhost port=5432 user=postgres password=postgres dbname=cafe_admin_users sslmode=disable"
 	db, err := sql.Open("postgres", connStr)
 	if err != nil {
 		log.Fatalf("Ошибка подключения к базе данных: %v", err)
