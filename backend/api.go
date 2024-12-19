@@ -19,8 +19,8 @@ type Server struct {
 	minUsername int
 	maxUsername int
 
-	server  *echo.Echo
-	r       *echo.Group
+	server *echo.Echo
+
 	address string
 
 	uc Usecase
@@ -44,36 +44,39 @@ func NewServer(ip string, port int, minPassword, maxPassword, minUsername, maxUs
 		AllowHeaders: []string{echo.HeaderOrigin, echo.HeaderContentType, echo.HeaderAuthorization},
 	}))
 
-	api.r = api.server.Group("/api")
-
-	config := echojwt.Config{
-		NewClaimsFunc: func(c echo.Context) jwt.Claims {
-			return new(vars.JWTClaims)
-		},
-		SigningKey: []byte(secret),
-	}
-
-	api.r.Use(echojwt.WithConfig(config))
-	api.r.GET("", api.AuthMiddleware)
 	api.RegisterRoutes()
 	api.address = fmt.Sprintf("%s:%d", ip, port)
 
 	return &api
 }
+
 func (api *Server) RegisterRoutes() {
+	// Публичные маршруты без JWT аутентификации
 	api.server.POST("/api/register", api.Register)
 	api.server.POST("/api/login", api.Login)
-	api.r.GET("/profile", api.AuthMiddleware)
-	api.server.GET("/api/menu", api.GetMenu)
-	api.server.DELETE("/api/menu/:id", api.DeleteMenuItem)
-	api.server.PUT("/api/menu/:id", api.UpdateMenuItem)
-	api.server.POST("/api/menu", api.AddMenuItem) // Новый маршрут
-	api.server.POST("/api/orders", api.AddOrder)  // Новый маршрут
-	api.server.GET("/api/orders", api.GetOrders)  // Новый маршрут
-	api.server.PUT("/api/orders/:id/status", api.UpdateOrderStatus)
-	api.server.GET("/api/revenue", api.GetRevenue)
-	api.server.GET("/api/order_counts", api.GetOrderCounts) // Новый маршрут
 
+	// Конфигурация JWT мидлвари
+	config := echojwt.Config{
+		NewClaimsFunc: func(c echo.Context) jwt.Claims {
+			return new(vars.JWTClaims)
+		},
+		SigningKey: []byte(api.uc.jp.secretKey),
+	}
+
+	// Группа защищённых маршрутов с префиксом /api
+	apiGroup := api.server.Group("/api")
+	apiGroup.Use(echojwt.WithConfig(config))
+
+	// Защищённые маршруты (без дополнительного /api)
+	apiGroup.GET("/menu", api.GetMenu)
+	apiGroup.DELETE("/menu/:id", api.DeleteMenuItem)
+	apiGroup.PUT("/menu/:id", api.UpdateMenuItem)
+	apiGroup.POST("/menu", api.AddMenuItem)
+	apiGroup.POST("/orders", api.AddOrder)
+	apiGroup.GET("/orders", api.GetOrders)
+	apiGroup.PUT("/orders/:id/status", api.UpdateOrderStatus)
+	apiGroup.GET("/revenue", api.GetRevenue)
+	apiGroup.GET("/order_counts", api.GetOrderCounts)
 }
 func (api *Server) Run() {
 	api.server.Logger.Fatal(api.server.Start(api.address))

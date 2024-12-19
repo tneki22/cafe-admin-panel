@@ -30,4 +30,3 @@ services:
       - backend
 volumes:
   db-data:
-// docker-compose up --build
