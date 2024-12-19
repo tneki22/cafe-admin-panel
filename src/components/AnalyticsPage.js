@@ -18,6 +18,7 @@ function AnalyticsPage() {
       const token = localStorage.getItem('token');
       const response = await fetch(`http://127.0.0.1:8885/api/revenue?period=${selectedPeriod}`, {
         headers: {
+          'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
         },
       });
@@ -39,6 +40,7 @@ function AnalyticsPage() {
       const token = localStorage.getItem('token');
       const response = await fetch(`http://127.0.0.1:8885/api/order_counts?period=${selectedPeriod}`, {
         headers: {
+          'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
         },
       });
