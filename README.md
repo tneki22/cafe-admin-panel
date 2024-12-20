@@ -67,7 +67,7 @@ go mod download
    Откройте PostgreSQL Shell и выполните следующие команды:
 
    ```sql
-   CREATE DATABASE cafe_admin_users;
+   CREATE DATABASE cafe-admin-users;
    CREATE USER postgres WITH PASSWORD 'postgres';
    GRANT ALL PRIVILEGES ON DATABASE cafe_admin_users TO postgres;
    ```
